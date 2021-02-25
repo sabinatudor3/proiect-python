@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <div class="panel">
+            <div class="left">
+                <span class="title">Build your CV with us!</span>
+                <button class="button-left" onclick="location.href = '/profile'">Next</button>
+            </div>
+            <div class="right">
+                {% load static %}
+                <img src="{% static 'images/1.png' %}" alt="image" class="image-right">
+            </div>
+        </div>
+    </body>
+</html>

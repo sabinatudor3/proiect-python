@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>CV</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> 
+	  {% load static %}
+    <link rel="stylesheet" href="{% static 'css/resume.css' %}">
+</head>
+<body>
+
+<div id="doc2" class="yui-t7">
+	<a class="btn btn-info"  href="{% url 'pdf_download' %}">Download PDF</a>
+	<div id="inner">
+		<div id="hd">
+			<div class="yui-gc">
+				<div class="yui-u first">
+					<h1>{{data.firstname}}{{' '}}{{ data.lastname}}</h1>
+				</div>
+                <div class="yui-u">
+					<div class="contact-info">
+						<h3>{{data.email}}</h3>
+						<h3>{{data.phone}}</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Profile</h2>
+						</div>
+						<div class="yui-u">
+							<p class="enlarge">{{tech.profile}}</p>
+						</div>
+					</div>
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Strenghts</h2>
+						</div>
+						<div class="yui-u">
+							<ul class="talent">
+								<li class="last">{{skill.get_skills1_display}}</li>
+							</ul>
+
+							<ul class="talent">
+								<li class="last">{{skill.get_skills2_display}}</li>
+							</ul>
+
+							<ul class="talent">
+								<li class="last">{{skill.get_skills3_display}}</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Technical</h2>
+						</div>
+						<div class="yui-u">
+							<ul class="talent">
+								<li class="last">{{tech.tech1}}</li>
+							</ul>
+
+							<ul class="talent">
+								<li class="last">{% if tech.tech2 %} {{tech.tech2}} {% else %} &nbsp; {% endif %}</li>
+							</ul>
+
+							<ul class="talent">
+								<li class="last">{% if tech.tech3 %} {{tech.tech3}} {% else %} &nbsp; {% endif %}</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Experience</h2>
+						</div>
+
+						<div class="yui-u">
+							<div class="job last">
+								<h2>{{work.company}}</h2>
+								<h3>{{work.position}}</h3>
+								<p>{{work.description}}</p>
+							</div>   
+						</div>
+					</div>
+
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Education</h2>
+						</div>
+						<div class="yui-u">
+							<h2>{{education.institution}}</h2>
+							<h3>{{education.studies}}</h3>
+							<p>{{education.description}} </p>
+						</div>
+					</div>
+
+					<div class="yui-gf last">
+						<div class="yui-u first">
+							<h2>Languages</h2>
+						</div>
+						<div class="yui-u">
+							<ul class="talent">
+								<li class="last">{{language.language1}}</li>
+							</ul>
+
+							<ul class="talent">
+								<li class="last">{% if language.language2 %} {{language.language2}} {% else %} &nbsp; {% endif %}</li>
+							</ul>
+
+							<ul class="talent">
+								<li class="last">{% if language.language3 %} {{language.language3}} {% else %} &nbsp; {% endif %}</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
